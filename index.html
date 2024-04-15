@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="input">Enter a number between 2 and 10: </label><br/>
+        <input type="text" id="num1" name="input">
+        <label for="text">by</label>
+        <input type="text" id="num2" name="input"><br/><br/>
+        <input type="submit" value="Click here when ready!" onclick="multiplyNum()">
+        <br/><br/>
+    </form>
+
+    <div id="table"></div>
+
+    <script>
+
+        function multiplyNum(){
+        var a = parseInt(document.getElementById("num1").value);
+        var b = parseInt(document.getElementById("num2").value);
+
+        if (a>10 || a<2 || b>10 || b<2){
+            
+            alert("Please enter numbers between 2 and 10.");
+            return;
+        }
+
+        var table = "<table border='1'>";
+        for (var i = a; i <= b; i++) {
+            table += "<tr>";
+        for (var j = a; j <= b; j++) {
+            table += "<td>" + (i * j) + "</td>";
+        }
+        table += "</tr>";
+        }
+        table += "</table>";
+
+        document.getElementById("table").innerHTML = table;
+    }
+    </script>
+</body>
+</html>
